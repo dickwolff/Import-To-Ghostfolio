@@ -124,9 +124,19 @@ Login to your XTB account and from the top bar click on "Account history", then 
 
 You can run the tool on your local machine by cloning this repository. You can also run the tool inside a Docker container. See the runtime specific instructions below.
 
-## Docker
+## Docker compose
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/dickwolff/export-to-ghostfolio?style=for-the-badge)](https://hub.docker.com/r/dickwolff/export-to-ghostfolio)
+Install docker
+
+Copy the `docker-compose.yml` file on your machine/server and run the file. Remember to configure ports and environment variables for that file.
+
+_If you have previous version are the same envs variables._
+
+```shell
+docker compose up
+```
+
+When you finnish using it, press Ctrl-C on the terminal you openned.
 
 <details>
 <summary>View instructions</summary>
@@ -234,6 +244,23 @@ You can now run `npm run start [exporttype]`. See the table with run commands be
 
 The tool uses `cacache` to store data retrieved from Yahoo Finance on disk. This way the load on Yahoo Finance is reduced and the tool should run faster. The cached data is stored in `/var/tmp/e2g-cache`. If you feel you need to invalidate your cache, you can do so by removing the folder and the tool will recreate the cache when you run it the next time.
 
+
+### Use the tool with Web
+
+Run `npm install` to install all required packages.
+
+Run `npm run web:dev` to start the web on port 3000.
+Run `npm run server` to start the web on port 3001.
+
+Recommended node version: 22.
+
+To have web inside the server, generate the web files with `node --run web:generate`.  
+Them you only have to run: `npm run server`.
+
+You can write the variables on the web server (woon't be saved), or using the same .env file than before that would be showed on the web page (recommended if you are alone).
+
+
+
 </details>
 
 ## Import to Ghostfolio
@@ -264,3 +291,4 @@ The tool can be run two ways, manually and via Docker. Both entrypoints of the t
 The tool uses a mock in the tests, which allow the tests to be run in a consistent and repeatable manner. This way there is no necessity for a live Yahoo Finance service. The mock was added because of inconsistencies in between test runs and rate-limiting issues with Yahoo Finance (with multiple consequetive runs, especially when running locally).
 
 Whenever you add a new converter or create a fix for an existing one, please refer to the [Wiki](https://github.com/dickwolff/Export-To-Ghostfolio/wiki/Add-new-testdata-to-Yahoo-Finance-mock) for instructions on how to extend the mock with testdata.
+

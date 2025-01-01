@@ -8,5 +8,5 @@
         "outDir": "dist",
         "resolveJsonModule": true
     },
-    "lib": ["es6"]
+    "lib": ["es2022"]
 }

@@ -1,18 +1,19 @@
 name: docker
 run-name: Build Docker Container
-
 on:
   push:
     branches:
       - main
     paths:
       - "src/**"
+      - "pages"
       - "package.json"
   pull_request:
     branches:
       - main
     paths:
       - "src/**"
+      - "pages"
       - "package.json"
   workflow_dispatch: # Also allow manual triggering
 
@@ -29,30 +30,24 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-
       - name: Install GitVersion
         uses: gittools/actions/gitversion/setup@v0.10.2
         with:
           versionSpec: "5.x"
-
       - name: Run GitVersion
         uses: gittools/actions/gitversion/execute@v0.10.2
         with:
           useConfigFile: true
-
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
-
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
-
       - name: Login to Docker Hub
         if: ${{ env.dockerhub_username != '' && env.dockerhub_token != '' }}
         uses: docker/login-action@v3
         with:
           username: ${{ env.dockerhub_username }}
           password: ${{ env.dockerhub_token }}
-
       - name: Determine image version
     #    shell: bash
         run: |
@@ -61,26 +56,24 @@ jobs:
           else
             echo "IMAGE_VERSION=${{ env.GitVersion_MajorMinorPatch }}" >> $GITHUB_ENV
           fi
-
       - name: Build and push (PR)
         uses: docker/build-push-action@v5
         if: ${{ github.event_name == 'pull_request' && env.dockerhub_username != '' && env.dockerhub_token != '' }}
         with:
           push: true
           tags: |
-            dickwolff/export-to-ghostfolio:${{ env.IMAGE_VERSION }}
+            ${{ github.ref_name }}/export-to-ghostfolio:${{ env.IMAGE_VERSION }}
           build-args: |
            IMAGE_VERSION=${{ env.IMAGE_VERSION }}
           platforms: linux/amd64,linux/arm64
-
       - name: Build and push (main)
         uses: docker/build-push-action@v5
         if: ${{ github.event_name != 'pull_request' && env.dockerhub_username != '' && env.dockerhub_token != '' }}
         with:
           push: true
           tags: |
-            dickwolff/export-to-ghostfolio:latest
-            dickwolff/export-to-ghostfolio:${{ env.IMAGE_VERSION }}
+            ${{ github.ref_name }}/export-to-ghostfolio:latest
+            ${{ github.ref_name }}/export-to-ghostfolio:${{ env.IMAGE_VERSION }}
           build-args: |
             IMAGE_VERSION=${{ env.IMAGE_VERSION }}
           platforms: linux/amd64,linux/arm64

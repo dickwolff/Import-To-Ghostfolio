@@ -22,6 +22,9 @@ export class DeGiroConverterV3 extends AbstractConverter {
    */
   public processFileContents(input: string, successCallback: any, errorCallback: any): void {
 
+    // Fix broken lines with ,,,,,,, that seems to be a export bug from DEGIRO.
+    input = input.replace(/\n,,,,,,,,,,,/gm, "");
+
     // Parse the CSV and convert to Ghostfolio import format.
     parse(input, {
       delimiter: ",",
@@ -235,9 +238,14 @@ export class DeGiroConverterV3 extends AbstractConverter {
     // If it is not a transaction fee record, get data from the record.
     if (!isTransactionFeeRecord) {
 
-      // Get the amount of shares from the description.
-      const numberSharesFromDescription = record.description.match(/([\d*\.?\,?\d*]+)/)[0];
-      numberShares = parseFloat(numberSharesFromDescription);
+      try {
+        // Get the amount of shares from the description.
+        const numberSharesFromDescription = record.description.match(/([\d*\.?\,?\d*]+)/)[0];
+        numberShares = parseFloat(numberSharesFromDescription);
+      } catch (error) {
+        console.error(`Could not parse the number of shares from the description: ${record.description}`, error, record);
+        throw new Error(`Could not parse the number of shares from the description: ${record.description}`);    
+      }
 
       // For buy/sale records, only the total amount is recorded. So the unit price needs to be calculated.
       const totalAmount = parseFloat(record.amount.replace(",", "."));
@@ -360,14 +368,14 @@ export class DeGiroConverterV3 extends AbstractConverter {
       return false;
     }
 
-    const transactionFeeRecordType = ["en\/of", "and\/or", "und\/oder", "e\/o", "adr\/gdr", "ritenuta", "belasting", "daň z dividendy", "taxe sur les", "impôts sur", "comissões de transação", "courtage et/ou"];
+    const transactionFeeRecordType = ["en\/of", "and\/or", "und\/oder", "e\/o", "adr\/gdr", "ritenuta", "belasting", "daň z dividendy", "taxe sur les", "impôts sur", "comissões de transação", "courtage et/ou", "costes de transacción"];
 
     return transactionFeeRecordType.some((t) => record.description.toLocaleLowerCase().indexOf(t) > -1);
   }
 
   private isPlatformFees(record: DeGiroRecord): boolean {
 
-    const platformFeeRecordType = ["aansluitingskosten", "costi di connessione", "verbindungskosten", "custo de conectividade", "frais de connexion", "juros", "corporate action"];
+    const platformFeeRecordType = ["aansluitingskosten", "costi di connessione", "verbindungskosten", "custo de conectividade", "frais de connexion", "juros", "corporate action", "comisión de conectividad"];
 
     return platformFeeRecordType.some((t) => record.description.toLocaleLowerCase().indexOf(t) > -1);
   }

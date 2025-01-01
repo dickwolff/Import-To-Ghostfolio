@@ -1,0 +1,17 @@
+# Create a docker compose file
+services:
+  export-to-ghostfolio:
+    image: ghcr.io/juanmandev/export-to-ghostfolio:latest
+    ports:
+      - "3456:3001"
+      # Update 3456 with the port you want to use
+    volumes:
+      - ./.env:/app/.env
+    environment:
+      - GHOSTFOLIO_VALIDATE=true
+      # - GHOSTFOLIO_ACCOUNT_ID="YO"
+      # - DEGIRO_PREFERED_EXCHANGE_POSTFIX = ".AS"
+      # - XTB_ACCOUNT_CURRENCY = "EUR"
+      # - GHOSTFOLIO_URL="http://192.168.2.3:3333"
+      # - GHOSTFOLIO_SECRET =
+      # - GHOSTFOLIO_UPDATE_CASH=true

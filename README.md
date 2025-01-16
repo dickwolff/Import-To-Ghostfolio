@@ -21,6 +21,7 @@ This tool allows you to convert a multiple transaction exports (CSV) to an impor
 - [Parqet](https://www.parqet.com/)
 - [Rabobank](https://rabobank.nl)
 - [Revolut](https://revolut.com)
+- [Saxo](https://www.home.saxo/nl-nl)
 - [Schwab](https://www.schwab.com)
 - [Swissquote](https://en.swissquote.com/)
 - [Trading 212](https://trading212.com)
@@ -116,6 +117,10 @@ Login to Rabobank and navigate to your investments. Navigate to "Transactions & 
 _The steps below are similar for both Revolut Invest as Revolut Crypto. Simply replace "Invest" by "Crypto"._
 
 Open the Revolut app and open the "Invest"-tab. Press the "More"-button, and then choose "Documents". Select your investment account and select the first option, "Account statement". Choose the "Excel" option and select the date range. Then download the file and save it on your device. Convert the file from `.xlsx` to `.csv`. **Set the separation character to `,` (comma)!**
+
+### Saxo
+
+Login to your Saxo account. Go to your profile (button on the top-right), then choose "Transaction overview" (near the bottom). Click the blue "Export"-button and click the "Excel"-button to download the file and save it on your device. Convert the file from `.xlsx` to `.csv`. **Set the separation character to `,` (comma)!**
 
 ### Schwab
 

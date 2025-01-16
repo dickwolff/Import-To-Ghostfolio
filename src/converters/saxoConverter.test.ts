@@ -34,7 +34,7 @@ describe("saxoConverter", () => {
       // Assert
       expect(actualExport).toBeTruthy();
       expect(actualExport.activities.length).toBeGreaterThan(0);
-      expect(actualExport.activities.length).toBe(12);
+      expect(actualExport.activities.length).toBe(15);
 
       done();
     }, () => { done.fail("Should not have an error!"); });
@@ -139,7 +139,7 @@ describe("saxoConverter", () => {
     // Act
     sut.processFileContents(tempFileContent, () => {
 
-      expect(consoleSpy).toHaveBeenCalledWith("[i] No result found for buy action for IE00BK5BQT80 with currency USD! Please add this manually..\n");
+      expect(consoleSpy).toHaveBeenCalledWith("[i] No result found for buy action for VWRA with currency USD! Please add this manually..\n");
 
       done();
     }, () => done.fail("Should not have an error!"));

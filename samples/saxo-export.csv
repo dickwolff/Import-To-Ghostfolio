@@ -1,0 +1,28 @@
+Client ID,Trade Date,Value Date,Type,Instrument,Instrument ISIN,Instrument currency,Exchange Description,Instrument Symbol,Event,Amount,Order ID,Conversion Rate
+,02-Jan-2025,02-Jan-2025,Trade,Vanguard FTSE All-World UCITS ETF,IE00BK5BQT80,USD,London Stock Exchange (ETFs),VWRA:xlon,Sell 3 @ 139.74 USD,"419,22",,1
+,02-Jan-2025,02-Jan-2025,Cash amount,,,USD,,,Custody Fee,"-3,91",,1
+,02-Jan-2025,02-Jan-2025,Cash amount,,,USD,,,Custody Fee,"-5,2",,1
+,02-Jan-2025,02-Jan-2025,Cash amount,,,USD,,,Custody Fee,"-2,83",,1
+,02-Jan-2025,02-Jan-2025,Cash amount,,,USD,,,Custody Fee,"-0,64",,1
+,30-Dec-2024,30-Dec-2024,Cash Transfer,,,USD,Unknown,,Deposit,500,,1
+,30-Dec-2024,31-Dec-2024,Trade,NVIDIA Corp.,US67066G1040,USD,NASDAQ,NVDA:xnas,Buy 3 @ 134.85 USD,"-405,55",,1
+,30-Dec-2024,30-Dec-2024,Cash Transfer,,,USD,Unknown,,Deposit,833,,1
+,30-Dec-2024,30-Dec-2024,Cash Transfer,,,USD,Unknown,,Deposit,833,,1
+,30-Dec-2024,02-Jan-2025,Trade,Vanguard FTSE All-World UCITS ETF,IE00BK5BQT80,USD,London Stock Exchange (ETFs),VWRA:xlon,Buy 3 @ 139.74 USD,"-422,99",,1
+,30-Dec-2024,31-Dec-2024,Trade,Meta Platforms Inc.,US30303M1027,USD,NASDAQ,META:xnas,Buy 1 @ 589.16 USD,"-590,16",,1
+,30-Dec-2024,30-Dec-2024,Cash Transfer,,,USD,Unknown,,Deposit,500,,1
+,30-Dec-2024,31-Dec-2024,Trade,Amazon.com Inc.,US0231351067,USD,NASDAQ,AMZN:xnas,Buy 2 @ 220.00 USD,-441,,1
+,30-Dec-2024,30-Dec-2024,Cash Transfer,,,USD,Unknown,,Deposit,500,,1
+,30-Dec-2024,02-Jan-2025,Trade,Vanguard FTSE All-World UCITS ETF,IE00BK5BQT80,USD,London Stock Exchange (ETFs),VWRA:xlon,Buy 3 @ 139.74 USD,"-422,99",,1
+,30-Dec-2024,02-Jan-2025,Trade,Vanguard FTSE All-World UCITS ETF,IE00BK5BQT80,USD,London Stock Exchange (ETFs),VWRA:xlon,Buy 17 @ 139.74 USD,"-2379,35",,1
+,30-Dec-2024,02-Jan-2025,Trade,Vanguard FTSE All-World UCITS ETF,IE00BK5BQT80,USD,London Stock Exchange (ETFs),VWRA:xlon,Buy 3 @ 139.74 USD,"-422,99",,1
+,30-Dec-2024,30-Dec-2024,Cash Transfer,,,USD,Unknown,,Deposit,833,,1
+,23-Dec-2024,23-Dec-2024,Cash Transfer,,,USD,Unknown,,Deposit,750,,1
+,23-Dec-2024,23-Dec-2024,Cash Transfer,,,USD,Unknown,,Deposit,750,,1
+,16-Dec-2024,18-Dec-2024,Trade,Vanguard FTSE All-World UCITS ETF,IE00BK5BQT80,USD,London Stock Exchange (ETFs),VWRA:xlon,Buy 2 @ 142.58 USD,"-288,96",,1
+,16-Dec-2024,16-Dec-2024,Cash Transfer,,,USD,Unknown,,Deposit,280,,1
+,16-Dec-2024,16-Dec-2024,Cash Transfer,,,USD,Unknown,,Deposit,280,,1
+,16-Dec-2024,16-Dec-2024,Cash Transfer,,,USD,Unknown,,Deposit,280,,1
+,16-Dec-2024,18-Dec-2024,Trade,Vanguard FTSE All-World UCITS ETF,IE00BK5BQT80,USD,London Stock Exchange (ETFs),VWRA:xlon,Buy 2 @ 142.58 USD,"-288,96",,1
+,16-Dec-2024,18-Dec-2024,Trade,Vanguard FTSE All-World UCITS ETF,IE00BK5BQT80,USD,London Stock Exchange (ETFs),VWRA:xlon,Buy 2 @ 142.58 USD,"-288,96",,1
+,16-Dec-2024,16-Dec-2024,Cash Transfer,,,USD,Unknown,,Withdrawal,-280,,1

@@ -11,6 +11,7 @@ import { DeGiroConverter } from "./converters/degiroConverter";
 import { DeGiroConverterV2 } from "./converters/degiroConverterV2";
 import { DeGiroConverterV3 } from "./converters/degiroConverterV3";
 import { DeltaConverter } from "./converters/deltaConverter";
+import { DirectaConverter } from "./converters/directaConverter";
 import { EtoroConverter } from "./converters/etoroConverter";
 import { FinpensionConverter } from "./converters/finpensionConverter";
 import { FreetradeConverter } from "./converters/freetradeConverter";
@@ -20,11 +21,11 @@ import { InvestimentalConverter } from "./converters/investimentalConverter";
 import { ParqetConverter } from "./converters/parqetConverter";
 import { RabobankConverter } from "./converters/rabobankConverter";
 import { RevolutConverter } from "./converters/revolutConverter";
+import { SaxoConverter } from "./converters/saxoConverter";
 import { SchwabConverter } from "./converters/schwabConverter";
 import { SwissquoteConverter } from "./converters/swissquoteConverter";
 import { Trading212Converter } from "./converters/trading212Converter";
 import { XtbConverter } from "./converters/xtbConverter";
-import { DirectaConverter } from "./converters/directaConverter";
 
 import packageInfo from "../package.json";
 
@@ -167,6 +168,10 @@ async function createConverter(converterType: string, securityService?: Security
         case "revolut":
             console.log("[i] Processing file using Revolut converter");
             converter = new RevolutConverter(securityService);
+            break;
+        case "saxo":
+            console.log("[i] Processing file using Saxo converter");
+            converter = new SaxoConverter(securityService);
             break;
         case "schwab":
             console.log("[i] Processing file using Schwab converter");

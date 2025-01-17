@@ -249,9 +249,10 @@ You can now run `npm run start [exporttype]`. See the table with run commands be
 | Freetrade     | `run start freetrade`  (or `ft`)   |
 | IBKR          | `run start ibkr`                   |
 | Investimental | `run start investimental`          |
-| Parqet        | `run start pareqt`                 |
+| Parqet        | `run start parqet`                 |
 | Rabobank      | `run start rabobank`               |
 | Revolut       | `run start revolut`                |
+| Saxo          | `run start saxo`                   |
 | Schwab        | `run start schwab`                 |
 | Swissquote    | `run start swissquote` (or `sq`)   |
 | Trading 212   | `run start trading212` (or `t212`) |

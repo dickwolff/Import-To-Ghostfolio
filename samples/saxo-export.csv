@@ -25,4 +25,5 @@ Client ID,Trade Date,Value Date,Type,Instrument,Instrument ISIN,Instrument curre
 ,16-Dec-2024,16-Dec-2024,Cash Transfer,,,USD,Unknown,,Deposit,280,,1
 ,16-Dec-2024,18-Dec-2024,Trade,Vanguard FTSE All-World UCITS ETF,IE00BK5BQT80,USD,London Stock Exchange (ETFs),VWRA:xlon,Buy 2 @ 142.58 USD,"-288,96",,1
 ,16-Dec-2024,18-Dec-2024,Trade,Vanguard FTSE All-World UCITS ETF,IE00BK5BQT80,USD,London Stock Exchange (ETFs),VWRA:xlon,Buy 2 @ 142.58 USD,"-288,96",,1
+,16-jan-2025,20-jan-2025,Transactie,Vanguard S&P 500 Dist UCITS ETF,IE00B3XXRP09,EUR,Euronext Amsterdam,VUSA:xams,Koop 1 @ 110.01 EUR,-110,,1
 ,16-Dec-2024,16-Dec-2024,Cash Transfer,,,USD,Unknown,,Withdrawal,-280,,1

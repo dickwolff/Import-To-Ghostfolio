@@ -31,6 +31,10 @@ export class CointrackingConverter extends AbstractConverter {
                 if (context.column === "buy" ||
                     context.column === "sell" ||
                     context.column === "fee") {
+                    if (columnValue === "") {
+                        return 0;
+                    }
+
                     return parseFloat(columnValue);
                 }
 
@@ -70,7 +74,7 @@ export class CointrackingConverter extends AbstractConverter {
                     continue;
                 }
 
-                let action = "buy";
+                let action = record.type.toLocaleLowerCase() === "staking" ? "dividend" : "buy";
                 let quantity = record.buy;
                 let price = record.sell;
                 let fee = record.fee;
@@ -81,13 +85,13 @@ export class CointrackingConverter extends AbstractConverter {
                 try {
                     security = await this.securityService.getSecurity(
                         null,
-                        `${record.currencyBuy}-${record.currencySell}`,
+                        `${record.currencyBuy}-${action === "dividend" ? record.currencyFee : record.currencySell}`,
                         null,
                         null,
                         this.progress);
                 }
                 catch (err) {
-                    this.logQueryError(`${record.currencyBuy}-${record.currencySell}`, idx + 2);
+                    this.logQueryError(`${record.currencyBuy}-${action === "dividend" ? record.currencyFee : record.currencySell}`, idx + 2);
                     return errorCallback(err);
                 }
 
@@ -103,20 +107,20 @@ export class CointrackingConverter extends AbstractConverter {
                     try {
                         security = await this.securityService.getSecurity(
                             null,
-                            `${record.currencySell}-${record.currencyBuy}`,
+                            `${action === "dividend" ? record.currencyFee : record.currencySell}-${record.currencyBuy}`,
                             null,
                             null,
                             this.progress);
                     }
                     catch (err) {
-                        this.logQueryError(`${record.currencySell}-${record.currencyBuy}`, idx + 2);
+                        this.logQueryError(`${action === "dividend" ? record.currencyFee : record.currencySell}-${record.currencyBuy}`, idx + 2);
                         return errorCallback(err);
                     }
                 }
 
                 // Log whenever there was no match found.
                 if (!security) {
-                    this.progress.log(`[i] No result found trade with currency ${record.currencyBuy}-${record.currencySell}! Please add this manually..\n`);
+                    this.progress.log(`[i] No result found trade with currency ${record.currencyBuy}-${action === "dividend" ? record.currencyFee : record.currencySell}! Please add this manually..\n`);
                     bar1.increment();
                     continue;
                 }
@@ -124,7 +128,6 @@ export class CointrackingConverter extends AbstractConverter {
                 const unitPrice = price / quantity;
 
                 // Overide action for staking records.
-                action = record.type.toLocaleLowerCase() === "staking" ? "dividend" : action;
 
                 // Add record to export.
                 result.activities.push({
@@ -166,8 +169,7 @@ export class CointrackingConverter extends AbstractConverter {
             "exchange",
             "group",
             "comment",
-            "date",
-            "txId"];
+            "date"];
 
         return csvHeaders;
     }

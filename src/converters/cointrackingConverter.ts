@@ -70,9 +70,6 @@ export class CointrackingConverter extends AbstractConverter {
                     continue;
                 }
 
-
-                // todo: staking?
-
                 let action = "buy";
                 let quantity = record.buy;
                 let price = record.sell;
@@ -125,6 +122,9 @@ export class CointrackingConverter extends AbstractConverter {
                 }
 
                 const unitPrice = price / quantity;
+
+                // Overide action for staking records.
+                action = record.type.toLocaleLowerCase() === "staking" ? "dividend" : action;
 
                 // Add record to export.
                 result.activities.push({

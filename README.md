@@ -54,7 +54,7 @@ _Due to limitations by BUX, you can request up to 3 CSV exports per day!_.
 
 ### CoinTracking.info
 
-__to come__
+Login to your CoinTracking.info account. Go to the "Transactions" section in the menu. Click the "Export"-button, then choose "CSV (Full Export)" **(this is important!)** to download the transactions.
 
 ### DEGIRO
 

@@ -169,7 +169,8 @@ export class CointrackingConverter extends AbstractConverter {
             "exchange",
             "group",
             "comment",
-            "date"];
+            "date",
+            "txId"];
 
         return csvHeaders;
     }

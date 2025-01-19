@@ -10,4 +10,5 @@ export class CointrackingRecord {
     group: string;
     comment: string;
     date: Date;
+    txId: string;
 }

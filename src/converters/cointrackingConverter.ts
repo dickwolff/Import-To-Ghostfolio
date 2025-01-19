@@ -136,7 +136,7 @@ export class CointrackingConverter extends AbstractConverter {
                     fee: fee,
                     quantity: quantity,
                     type: GhostfolioOrderType[action],
-                    unitPrice: unitPrice,
+                    unitPrice: action === "dividend" ? 1 : unitPrice,
                     currency: security.currency,
                     dataSource: "YAHOO",
                     date: dayjs(record.date).format("YYYY-MM-DDTHH:mm:ssZ"),

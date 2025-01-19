@@ -241,6 +241,7 @@ You can now run `npm run start [exporttype]`. See the table with run commands be
 | Avanza        | `run start avanza`                 |
 | Bitvavo       | `run start bitvavo` (or `bv`)      |
 | BUX           | `run start bux`                    |
+| CoinTracking  | `run start cointracking` (or `ct`) |
 | DEGIRO        | `run start degiro`                 |
 | Delta         | `run start delta`                  |
 | Directa       | `run start directa`                |

@@ -33,6 +33,10 @@ export class SaxoConverter extends AbstractConverter {
 
                 // Parse numbers to floats (from string).
                 if (context.column === "amount" || context.column === "conversionRate") {
+                    if (columnValue === "") {
+                        return 0;
+                    }
+
                     return parseFloat(columnValue);
                 }
 
@@ -120,7 +124,6 @@ export class SaxoConverter extends AbstractConverter {
                     continue;
                 }
 
-                //record.event = "Buy 3 @ 134.85 USD"
                 const actionDetails = record.event.match(/(\d+)\s+@\s+([\d.]+)/)
 
                 // Make negative numbers (on sell records) absolute.

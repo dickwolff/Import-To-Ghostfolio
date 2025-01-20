@@ -21,7 +21,7 @@ This tool allows you to convert CSV transaction exports to an import file that c
 - [Parqet](https://www.parqet.com/)
 - [Rabobank](https://rabobank.nl)
 - [Revolut](https://revolut.com)
-- [Saxo](https://www.home.saxo/nl-nl)
+- [Saxo](https://www.home.saxo)
 - [Schwab](https://www.schwab.com)
 - [Swissquote](https://en.swissquote.com/)
 - [Trading 212](https://trading212.com)

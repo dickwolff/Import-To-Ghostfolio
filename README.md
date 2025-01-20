@@ -3,9 +3,9 @@
 [![Github-sponsors](https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&logo=GitHub-Sponsors&logoColor=#EA4AAA)](https://github.com/sponsors/dickwolff) &nbsp;
 [![BuyMeACoffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/dickw0lff)
 
-![Code Coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/dickwolff/dd5dc24ffa62de59b3d836f856f48a10/raw/cov.json)
+[![Docker Pulls](https://img.shields.io/docker/pulls/dickwolff/export-to-ghostfolio?style=for-the-badge)](https://hub.docker.com/r/dickwolff/export-to-ghostfolio) &nbsp; ![Code Coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/dickwolff/dd5dc24ffa62de59b3d836f856f48a10/raw/cov.json) &nbsp; ![Stars](https://img.shields.io/github/stars/dickwolff/export-to-ghostfolio?style=for-the-badge)
 
-This tool allows you to convert a multiple transaction exports (CSV) to an import file that can be read by [Ghostfolio](https://github.com/ghostfolio/ghostfolio/). Currently there is support for:
+This tool allows you to convert CSV transaction exports to an import file that can be read by [Ghostfolio](https://github.com/ghostfolio/ghostfolio/). Currently there is support for 18 brokers:
 
 - [Avanza](https://avanza.se)
 - [Bitvavo](https://bitvavo.com)
@@ -21,6 +21,7 @@ This tool allows you to convert a multiple transaction exports (CSV) to an impor
 - [Parqet](https://www.parqet.com/)
 - [Rabobank](https://rabobank.nl)
 - [Revolut](https://revolut.com)
+- [Saxo](https://www.home.saxo)
 - [Schwab](https://www.schwab.com)
 - [Swissquote](https://en.swissquote.com/)
 - [Trading 212](https://trading212.com)
@@ -116,6 +117,10 @@ Login to Rabobank and navigate to your investments. Navigate to "Transactions & 
 _The steps below are similar for both Revolut Invest as Revolut Crypto. Simply replace "Invest" by "Crypto"._
 
 Open the Revolut app and open the "Invest"-tab. Press the "More"-button, and then choose "Documents". Select your investment account and select the first option, "Account statement". Choose the "Excel" option and select the date range. Then download the file and save it on your device. Convert the file from `.xlsx` to `.csv`. **Set the separation character to `,` (comma)!**
+
+### Saxo
+
+Login to your Saxo account. Go to your profile (button on the top-right), then choose "Transaction overview" (near the bottom). Click the blue "Export"-button and click the "Excel"-button to download the file and save it on your device. Convert the file from `.xlsx` to `.csv`. **Set the separation character to `,` (comma)!**
 
 ### Schwab
 
@@ -244,9 +249,10 @@ You can now run `npm run start [exporttype]`. See the table with run commands be
 | Freetrade     | `run start freetrade`  (or `ft`)   |
 | IBKR          | `run start ibkr`                   |
 | Investimental | `run start investimental`          |
-| Parqet        | `run start pareqt`                 |
+| Parqet        | `run start parqet`                 |
 | Rabobank      | `run start rabobank`               |
 | Revolut       | `run start revolut`                |
+| Saxo          | `run start saxo`                   |
 | Schwab        | `run start schwab`                 |
 | Swissquote    | `run start swissquote` (or `sq`)   |
 | Trading 212   | `run start trading212` (or `t212`) |

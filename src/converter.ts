@@ -7,10 +7,12 @@ import { AbstractConverter } from "./converters/abstractconverter";
 import { AvanzaConverter } from "./converters/avanzaConverter";
 import { BitvavoConverter } from "./converters/bitvavoConverter";
 import { BuxConverter } from "./converters/buxConverter";
+import { CointrackingConverter } from "./converters/cointrackingConverter";
 import { DeGiroConverter } from "./converters/degiroConverter";
 import { DeGiroConverterV2 } from "./converters/degiroConverterV2";
 import { DeGiroConverterV3 } from "./converters/degiroConverterV3";
 import { DeltaConverter } from "./converters/deltaConverter";
+import { DirectaConverter } from "./converters/directaConverter";
 import { EtoroConverter } from "./converters/etoroConverter";
 import { FinpensionConverter } from "./converters/finpensionConverter";
 import { FreetradeConverter } from "./converters/freetradeConverter";
@@ -24,7 +26,6 @@ import { SchwabConverter } from "./converters/schwabConverter";
 import { SwissquoteConverter } from "./converters/swissquoteConverter";
 import { Trading212Converter } from "./converters/trading212Converter";
 import { XtbConverter } from "./converters/xtbConverter";
-import { DirectaConverter } from "./converters/directaConverter";
 
 import packageInfo from "../package.json";
 
@@ -112,6 +113,11 @@ async function createConverter(converterType: string, securityService?: Security
         case "bux":
             console.log("[i] Processing file using Bux converter");
             converter = new BuxConverter(securityService);
+            break;
+        case "ct":
+        case "cointracking":
+            console.log("[i] Processing file using CoinTracking converter");
+            converter = new CointrackingConverter(securityService);
             break;
         case "degiro-v1":
             console.log("[i] Processing file using DeGiro converter (V1)");

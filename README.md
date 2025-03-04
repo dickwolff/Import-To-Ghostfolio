@@ -26,6 +26,7 @@ This tool allows you to convert CSV transaction exports to an import file that c
 - [Saxo](https://www.home.saxo)
 - [Schwab](https://www.schwab.com)
 - [Swissquote](https://en.swissquote.com/)
+- [TradeRepublic](https://traderepublic.com)
 - [Trading 212](https://trading212.com)
 - [XTB](https://www.xtb.com/int)
 
@@ -144,6 +145,12 @@ Login to your Swissquote account. From the bar menu click on "Transactions". Sel
 
 **NOTE:** For Swissquote it's important you have set your display language as English. You can do this by logging into your Swissquote account and then select "My Account" (Mein Konto). Click the "Settings"-button (Einstellungen), then change your display language (displaysprache) to English. After this change, your Swissquote export will be in English.
 
+### TradeRepublic
+
+> **As TradeRepublic itself does not offer CSV exports, this can be achieved using a community tool called [`pytr`](https://github.com/pytr-org/pytr/). The instructions below are based on that tool!**
+
+Download [`pytr`](https://github.com/pytr-org/pytr/) on your local machine. After installing, run `uvx pytr dl_docs ./docs`. This will download all of your transaction files and prepare the files needed to create a CSV. You might need to provide your TradeRepublic credentials to be able to download the documents. After downloading the documents, then convert those to a CSV file like `uvx pytr export_transactions C:\users\you\desktop\docs\all_events.json C:\users\you\desktop\docs\traderepublic.csv`.
+
 ### Trading 212
 
 Login to your Trading 212 account and create an export file (via History > Download icon). Choose the period from which you wish to export your history and click download.
@@ -247,29 +254,30 @@ The repository contains a sample configuration file. Rename this from `.env.samp
 
 You can now run `npm run start [exporttype]`. See the table with run commands below. The tool will open your export and will convert this. It retrieves the symbols that are supported with YAHOO Finance (e.g. for European stocks like `ASML`, it will retrieve `ASML.AS` by the corresponding ISIN).
 
-| Exporter      | Run command                        |
-| ------------- | ---------------------------------- |
-| Avanza        | `run start avanza`                 |
-| Bitvavo       | `run start bitvavo` (or `bv`)      |
-| BUX           | `run start bux`                    |
-| Coinbase      | `run start coinbase` (or `cb`)     |
-| CoinTracking  | `run start cointracking` (or `ct`) |
-| DEGIRO        | `run start degiro`                 |
-| Delta         | `run start delta`                  |
-| Directa       | `run start directa`                |
-| eToro         | `run start etoro`                  |
-| Finpension    | `run start finpension` (or `fp`)   |
-| Freetrade     | `run start freetrade`  (or `ft`)   |
-| IBKR          | `run start ibkr`                   |
-| Investimental | `run start investimental`          |
-| Parqet        | `run start parqet`                 |
-| Rabobank      | `run start rabobank`               |
-| Revolut       | `run start revolut`                |
-| Saxo          | `run start saxo`                   |
-| Schwab        | `run start schwab`                 |
-| Swissquote    | `run start swissquote` (or `sq`)   |
-| Trading 212   | `run start trading212` (or `t212`) |
-| XTB           | `run start xtb`                    |
+| Exporter      | Run command                         |
+| ------------- | ----------------------------------- |
+| Avanza        | `run start avanza`                  |
+| Bitvavo       | `run start bitvavo` (or `bv`)       |
+| BUX           | `run start bux`                     |
+| Coinbase      | `run start coinbase` (or `cb`)      |
+| CoinTracking  | `run start cointracking` (or `ct`)  |
+| DEGIRO        | `run start degiro`                  |
+| Delta         | `run start delta`                   |
+| Directa       | `run start directa`                 |
+| eToro         | `run start etoro`                   |
+| Finpension    | `run start finpension` (or `fp`)    |
+| Freetrade     | `run start freetrade`  (or `ft`)    |
+| IBKR          | `run start ibkr`                    |
+| Investimental | `run start investimental`           |
+| Parqet        | `run start parqet`                  |
+| Rabobank      | `run start rabobank`                |
+| Revolut       | `run start revolut`                 |
+| Saxo          | `run start saxo`                    |
+| Schwab        | `run start schwab`                  |
+| Swissquote    | `run start swissquote` (or `sq`)    |
+| TradeRepublic | `run start traderepublic` (or `tr`) |
+| Trading 212   | `run start trading212` (or `t212`)  |
+| XTB           | `run start xtb`                     |
 
 ### Caching
 

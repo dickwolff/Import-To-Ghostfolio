@@ -1,0 +1,7 @@
+Datum;Transactietype;Waarde (netto);Opmerking;ISIN;Aantal;Kosten;Belasting
+2024-11-30;Onttrekking;-10,84;John Doe;;;;
+2024-11-26;Storting;0,01;John Doe;;;;
+2024-07-23;Aankoop;-5;FTSE Developed World USD (Dist);IE00BKX55T58;0,052361;;
+2024-11-29;Verkoop;10,799;FTSE Developed World USD (Dist);IE00BKX55T58;0,104341;;
+2024-07-16;Aankoop;-5;FTSE Developed World USD (Dist);IE00BKX55T58;0,05198;;
+2024-09-25;Dividend;0,03;FTSE Developed World USD (Dist);IE00BKX55T58;;;

@@ -26,6 +26,7 @@ import { RevolutConverter } from "./converters/revolutConverter";
 import { SaxoConverter } from "./converters/saxoConverter";
 import { SchwabConverter } from "./converters/schwabConverter";
 import { SwissquoteConverter } from "./converters/swissquoteConverter";
+import { TradeRepublicConverter } from "./converters/tradeRepublicConverter";
 import { Trading212Converter } from "./converters/trading212Converter";
 import { XtbConverter } from "./converters/xtbConverter";
 
@@ -147,6 +148,10 @@ async function createConverter(converterType: string, securityService?: Security
             console.log("[i] Processing file using Delta converter");
             converter = new DeltaConverter(securityService);
             break;
+        case "directa":
+            console.log("[i] Processing file using Directa converter, this is an experimental converter!");
+            converter = new DirectaConverter(securityService);
+            break;
         case "etoro":
             console.log("[i] Processing file using Etoro converter");
             converter = new EtoroConverter(securityService);
@@ -194,6 +199,11 @@ async function createConverter(converterType: string, securityService?: Security
             console.log("[i] Processing file using Swissquote converter");
             converter = new SwissquoteConverter(securityService);
             break;
+        case "tr":
+        case "traderepublic":
+            console.log("[i] Processing file using TradeRepublic converter");
+            converter = new TradeRepublicConverter(securityService);
+            break;
         case "t212":
         case "trading212":
             console.log("[i] Processing file using Trading212 converter");
@@ -202,10 +212,6 @@ async function createConverter(converterType: string, securityService?: Security
         case "xtb":
             console.log("[i] Processing file using XTB converter");
             converter = new XtbConverter(securityService);
-            break;
-        case "directa":
-            console.log("[i] Processing file using Directa converter, this is an experimental converter!");
-            converter = new DirectaConverter(securityService);
             break;
         default:
             throw new Error(`Unknown converter '${converterType}' provided`);

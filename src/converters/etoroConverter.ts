@@ -192,7 +192,7 @@ export class EtoroConverter extends AbstractConverter {
      */
     protected processHeaders(_: string): string[] {
 
-        // Generic header mapping from the DEGIRO CSV export.
+        // Generic header mapping from the Etoro CSV export.
         const csvHeaders = [
             "date",
             "type",
